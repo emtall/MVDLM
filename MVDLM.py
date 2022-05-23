@@ -20,7 +20,7 @@ class multivariate_t_with_cdf(multivariate_t_frozen):
         prob=np.mean(samps.T <= x.reshape(len(self.loc), 1))
         return(prob)
 
-class DLM:
+class MVDLM:
     
     def __init__(self, beta, delta, q, m0=None, c0=100, n0=20, D0=None):
         if m0 is None: m0=np.zeros(q)
@@ -106,7 +106,7 @@ class DLM:
         
         self.sim_y=np.array([multivariate_normal(self.thetas[i], self.Sigmas[i]).rvs() for i in range(self.t)])
         
-class AR_DLM:
+class MV_TVAR:
     
     def __init__(self,  arp, beta, delta, q, data, weird_thing=False, risk_free=None):
 
