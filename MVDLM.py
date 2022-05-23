@@ -108,7 +108,7 @@ class MVDLM:
         
 class MV_TVAR:
     
-    def __init__(self,  arp, beta, delta, q, data, weird_thing=False, risk_free=None):
+    def __init__(self,  arp, beta, delta, q, data):
 
         self.Y = np.array(data)
         self.beta = beta
@@ -127,9 +127,7 @@ class MV_TVAR:
             M0[0, :] = self.Y[(arp):].mean(axis=0)*(1-.99)
         self.M = M0
         self.C = np.eye(self.p)
-        self.data = data
-        self.weird_thing = weird_thing
-                           
+        self.data = data                           
                            
     def add_data(self, y, t, set_w=True):
         
